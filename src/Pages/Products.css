@@ -123,6 +123,37 @@ h1::after {
     text-overflow: ellipsis;
 }
 
+/* Add to Cart button */
+.add-to-cart-btn {
+    width: 100%;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, rgb(251, 131, 19), #ff5722);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+.add-to-cart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(251, 131, 19, 0.4);
+}
+
+.add-to-cart-btn:active {
+    transform: translateY(0);
+}
+
+/* Dark mode for add to cart button */
+body.dark-mode .add-to-cart-btn {
+    background: linear-gradient(135deg, rgb(251, 131, 19), #ff5722);
+}
+
 @media (max-width: 768px) {
     .container > div {
         grid-template-columns: repeat(2, 1fr);
@@ -141,11 +172,17 @@ h1::after {
         width: 150px;
         height: 150px;
     }
+    
+    .add-to-cart-btn {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 480px) {
     .container > div {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
     
     .container {
@@ -154,5 +191,32 @@ h1::after {
     
     h1 {
         font-size: 1.5rem;
+    }
+    
+    .card {
+        padding: 20px;
+    }
+    
+    .card img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .card h3 {
+        font-size: 1rem;
+        min-height: 40px;
+    }
+    
+    .card h4 {
+        font-size: 1.1rem;
+    }
+    
+    .card p {
+        font-size: 0.85rem;
+    }
+    
+    .add-to-cart-btn {
+        padding: 10px 14px;
+        font-size: 13px;
     }
 }

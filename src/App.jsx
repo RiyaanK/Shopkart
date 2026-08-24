@@ -9,7 +9,9 @@ import Login from './Pages/Login';
 import Register from './Pages/Register';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
+import { CartProvider } from './context/CartContext';
 import './context/ThemeContext.css';
+import ErrorBoundary from './Components/ErrorBoundary';
 
 function App() {
 
@@ -23,17 +25,21 @@ function App() {
 
   return(
     <ThemeProvider>
-    <BrowserRouter>
-    <Navbar/>
-    <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/products" element={<Products person={person}/>}/>
-        <Route path="/cart" element={<Cart/>}/>
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/register" element={<Register/>}/>
-    </Routes>
-    <Footer/>
-    </BrowserRouter>
+    <CartProvider>
+    <ErrorBoundary>
+      <BrowserRouter>
+      <Navbar/>
+      <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/products" element={<Products person={person}/>}/>
+          <Route path="/cart" element={<Cart/>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/register" element={<Register/>}/>
+      </Routes>
+      <Footer/>
+      </BrowserRouter>
+    </ErrorBoundary>
+    </CartProvider>
     </ThemeProvider>
   );
 

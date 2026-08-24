@@ -1,11 +1,13 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import { useTheme } from '../context/ThemeContext'
+import { useCart } from '../context/CartContext'
 import '../Components/Navbar.css';
 import '../context/ThemeContext.css';
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
+  const { totalItems } = useCart();
 
   return (
     <nav>
@@ -23,7 +25,7 @@ const Navbar = () => {
           <li>
             <Link to="/cart" className='link cart-link'>
               🛒 Cart
-              <span className='cart-badge'>0</span>
+              <span className='cart-badge'>{totalItems}</span>
             </Link>
           </li>
           <li><Link to="/login" className='link'>🔑 Login</Link></li>

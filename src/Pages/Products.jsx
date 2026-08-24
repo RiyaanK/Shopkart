@@ -6,7 +6,7 @@ import './Products.css'
 const Products = () => {
   const[allproducts,setProducts]=useState([]);
   useEffect(() => {
-    fetch("https://fakestoreapi.com/Products")
+    fetch("https://fakestoreapi.com/products")
     .then ((res) => res.json())
     .then ((data) => setProducts (data))
     .catch ((error) => console.log(error))
